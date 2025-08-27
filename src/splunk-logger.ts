@@ -1,4 +1,4 @@
-import { Agent as HttpsAgent } from 'node:https';
+import { Agent } from 'undici';
 
 export type LoggerConfig = {
   token: string;
@@ -27,6 +27,7 @@ export class SplunkLogger {
   private readonly config: LoggerConfig;
   private queue: Payload[] = [];
   private readonly timer?: NodeJS.Timeout;
+  private readonly dispatcher?: Agent;
 
   constructor(config: LoggerConfig) {
     if (!config.token) {
@@ -40,6 +41,10 @@ export class SplunkLogger {
       strictSSL: true,
       ...config,
     };
+
+    if (this.config.strictSSL === false) {
+      this.dispatcher = new Agent({ connect: { rejectUnauthorized: false } });
+    }
 
     if (this.config.batchInterval && this.config.batchInterval > 0) {
       this.timer = setInterval(() => {
@@ -100,21 +105,15 @@ export class SplunkLogger {
     const url = `${this.config.url}/services/collector/event`;
     const body = payloads.map((p) => JSON.stringify(p)).join('\n');
 
-    const agent =
-      this.config.strictSSL === false
-        ? new HttpsAgent({ rejectUnauthorized: false })
-        : undefined;
-
     const res = await fetch(url, {
       method: 'POST',
       headers: {
         Authorization: `Splunk ${this.config.token}`,
         'Content-Type': 'application/json',
       },
+
       body,
-      // Node.js fetch supports `agent` for custom TLS settings
-      // @ts-expect-error
-      agent,
+      dispatcher: this.dispatcher,
     });
 
     const text = await res.text();
