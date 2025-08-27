@@ -152,6 +152,46 @@ describe('SplunkLogger', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
+  it('should queue log if batchInterval is set but maxBatchCount not reached', async () => {
+    fetchMock.mockResolvedValue({
+      ok: true,
+      status: 200,
+      text: async () => '{"text":"ok","code":0}',
+    });
+
+    const logger = new SplunkLogger({
+      token: 'token',
+      url: 'https://splunk.example.com:8088',
+      batchInterval: 1000,
+    });
+
+    const res = await logger.sendAsync({ event: { message: 'queued-only' } });
+    expect(res).toEqual({ text: 'Queued', code: 0 });
+  });
+
+  it('should catch errors in flush timer and log warning', async () => {
+    const logger = new SplunkLogger({
+      token: 'token',
+      url: 'https://splunk.example.com:8088',
+      batchInterval: 10,
+    });
+
+    // biome-ignore lint/suspicious/noExplicitAny: spy on console
+    // biome-ignore lint/suspicious/noEmptyBlockStatements: mock ok
+    const warnSpy: any = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const timeout = 20;
+    vi.spyOn(logger, 'flush').mockRejectedValueOnce(new Error('flush fail'));
+
+    await new Promise((r) => setTimeout(r, timeout));
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Splunk flush failed (ignored):',
+      'flush fail'
+    );
+
+    warnSpy.mockRestore();
+    logger.close();
+  });
+
   it('should flush queued logs manually', async () => {
     fetchMock.mockResolvedValue({
       ok: true,
