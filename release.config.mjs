@@ -17,7 +17,12 @@ export default {
       },
     ],
     '@semantic-release/changelog',
-    '@semantic-release/npm',
+    [
+      '@semantic-release/npm',
+      {
+        prepare: 'npm run build',
+      },
+    ],
     [
       '@semantic-release/git',
       {
