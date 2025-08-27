@@ -2,10 +2,14 @@
 
 A modern TypeScript library for sending logs to Splunk HTTP Event Collector (HEC) with batching, streaming, and flexible API support.
 
+![NPM Version](https://img.shields.io/npm/v/%40mcp-aio%2Flogging)
+![Github workflow](https://github.com/mcp-aio/logging/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/mcp-aio/logging/graph/badge.svg?token=ZXNTJQ0THD)](https://codecov.io/gh/mcp-aio/logging)
+
 ## Features
 
 - 🚀 **Modern TypeScript** with full type safety
-- 📦 **Batching support** with configurable intervals and sizes  
+- 📦 **Batching support** with configurable intervals and sizes
 - 🌊 **Stream interface** for integration with logging frameworks
 - 🔄 **Dual API** - both Promise and callback styles
 - 🔒 **SSL/TLS configuration** options
@@ -23,41 +27,42 @@ npm install @mcp-aio/logging
 ### Basic Usage
 
 ```typescript
-import { SplunkLogger } from '@mcp-aio/logging';
+import { SplunkLogger } from "@mcp-aio/logging";
 
 const logger = new SplunkLogger({
-  token: 'your-hec-token',
-  url: 'https://your-splunk-instance:8088'
+  token: "your-hec-token",
+  url: "https://your-splunk-instance:8088",
 });
 
 // Send a log event
 await logger.sendAsync({
-  event: { message: 'Hello Splunk!', level: 'info' }
+  event: { message: "Hello Splunk!", level: "info" },
 });
 ```
 
 ### Stream Usage
 
 ```typescript
-import { SplunkStream } from '@mcp-aio/logging';
+import { SplunkStream } from "@mcp-aio/logging";
 
 const stream = new SplunkStream({
   splunk: {
-    token: 'your-hec-token',
-    url: 'https://your-splunk-instance:8088'
-  }
+    token: "your-hec-token",
+    url: "https://your-splunk-instance:8088",
+  },
 });
 
 // Use with any logging framework
-stream.write(JSON.stringify({ message: 'Stream log' }));
+stream.write(JSON.stringify({ message: "Stream log" }));
 ```
 
 ### Use with logger frameworks
 
 #### Pino
+
 ```typescript
 import pino from "pino";
-import { SplunkStream } from '@mcp-aio/logging';
+import { SplunkStream } from "@mcp-aio/logging";
 
 const splunkStream = new SplunkStream({
   splunk: { token: "xxx", url: "https://splunk-host:8088" },
@@ -69,9 +74,10 @@ logger.info("Hello Pino + Splunk adapter!");
 ```
 
 #### Bunyan
+
 ```typescript
 import bunyan from "bunyan";
-import { SplunkStream } from '@mcp-aio/logging';
+import { SplunkStream } from "@mcp-aio/logging";
 
 const splunkStream = new SplunkStream({
   splunk: { token: "xxx", url: "https://splunk-host:8088" },
@@ -79,19 +85,17 @@ const splunkStream = new SplunkStream({
 
 const logger = bunyan.createLogger({
   name: "myapp",
-  streams: [
-    { stream: process.stdout },
-    { stream: splunkStream, type: "raw" },
-  ],
+  streams: [{ stream: process.stdout }, { stream: splunkStream, type: "raw" }],
 });
 
 logger.info("Hello Bunyan + Splunk adapter!");
 ```
 
 #### Winston
+
 ```typescript
 import Transport from "winston-transport";
-import { SplunkStream, type SplunkStreamOptions } from '@mcp-aio/logging';
+import { SplunkStream, type SplunkStreamOptions } from "@mcp-aio/logging";
 
 export class SplunkTransport extends Transport {
   private stream: SplunkStream;
@@ -125,17 +129,16 @@ const logger = winston.createLogger({
 });
 
 logger.info("Hello Winston + Splunk adapter!");
-
 ```
 
 ### Batching
 
 ```typescript
 const logger = new SplunkLogger({
-  token: 'your-hec-token',
-  url: 'https://your-splunk-instance:8088',
-  batchInterval: 5000,     // Flush every 5 seconds
-  maxBatchCount: 100       // Or when 100 events queued
+  token: "your-hec-token",
+  url: "https://your-splunk-instance:8088",
+  batchInterval: 5000, // Flush every 5 seconds
+  maxBatchCount: 100, // Or when 100 events queued
 });
 ```
 
