@@ -1,0 +1,81 @@
+{
+  "name": "@mcp-aio/logging",
+  "version": "0.0.0",
+  "description": "The logging library for MCP server",
+  "type": "module",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Kun Yan",
+      "email": "kyan@redhat.com"
+    }
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "homepage": "https://github.com/mcp-aio/logging#readme",
+  "bugs": {
+    "url": "https://github.com/mcp-aio/logging/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcp-aio/logging.git"
+  },
+  "author": "Kun Yan <kyan@redhat.com>",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "release": "semantic-release",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.2",
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/npm": "12.0.2",
+    "@types/node": "24.3.0",
+    "@vitest/coverage-v8": "3.2.4",
+    "commitizen": "4.3.1",
+    "commitlint": "19.8.1",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "9.1.7",
+    "lint-staged": "16.1.5",
+    "semantic-release": "24.2.7",
+    "tsdown": "0.14.2",
+    "typescript": "5.9.2",
+    "ultracite": "5.2.5",
+    "vitest": "3.2.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+      "npx ultracite format",
+      "npm run typecheck"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "overrides": {
+    "tmp": "^0.2.5"
+  }
+}
