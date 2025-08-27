@@ -1,16 +1,14 @@
-name: CI & Release
+name: Release
 
 on:
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: read
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: "Release version"
+        required: true
 
 jobs:
-  test-and-release:
-    name: Test, Coverage & Release
+  release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
