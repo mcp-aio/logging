@@ -1,12 +1,15 @@
-name: Unit Test & Coverage
+name: CI
 
 on:
   pull_request:
     branches:
       - "**"
+  push:
+    branches:
+      - "**"
 
 jobs:
-  unit-tests:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
