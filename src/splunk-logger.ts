@@ -1,4 +1,4 @@
-import { Agent } from 'undici';
+import { Agent } from "undici";
 
 export type LoggerConfig = {
   token: string;
@@ -31,10 +31,10 @@ export class SplunkLogger {
 
   constructor(config: LoggerConfig) {
     if (!config.token) {
-      throw new Error('Splunk HEC token is required');
+      throw new Error("Splunk HEC token is required");
     }
     if (!config.url) {
-      throw new Error('Splunk HEC URL is required');
+      throw new Error("Splunk HEC URL is required");
     }
 
     this.config = {
@@ -50,7 +50,7 @@ export class SplunkLogger {
       this.timer = setInterval(() => {
         this.flush().catch((err) => {
           // biome-ignore lint/suspicious/noConsole: console should be used in this place
-          console.warn('Splunk flush failed (ignored):', err.message);
+          console.warn("Splunk flush failed (ignored):", err.message);
         });
       }, this.config.batchInterval);
     }
@@ -79,7 +79,7 @@ export class SplunkLogger {
         return await this.flush();
       }
 
-      return Promise.resolve({ text: 'Queued', code: 0 });
+      return Promise.resolve({ text: "Queued", code: 0 });
     }
 
     return this.doSend([payload]);
@@ -90,7 +90,7 @@ export class SplunkLogger {
    */
   async flush(): Promise<SplunkResponse> {
     if (this.queue.length === 0) {
-      return { text: 'No payload', code: 0 };
+      return { text: "No payload", code: 0 };
     }
 
     const toSend = [...this.queue];
@@ -103,13 +103,13 @@ export class SplunkLogger {
    */
   private async doSend(payloads: Payload[]): Promise<SplunkResponse> {
     const url = `${this.config.url}/services/collector/event`;
-    const body = payloads.map((p) => JSON.stringify(p)).join('\n');
+    const body = payloads.map((p) => JSON.stringify(p)).join("\n");
 
     const res = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
         Authorization: `Splunk ${this.config.token}`,
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
 
       body,

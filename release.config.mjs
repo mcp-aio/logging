@@ -2,36 +2,36 @@
  * @type {import('semantic-release').GlobalConfig}
  */
 export default {
-  branches: ['main'],
+  branches: ["main"],
   plugins: [
     [
-      '@semantic-release/commit-analyzer',
+      "@semantic-release/commit-analyzer",
       {
-        preset: 'conventionalcommits',
+        preset: "conventionalcommits",
       },
     ],
     [
-      '@semantic-release/release-notes-generator',
+      "@semantic-release/release-notes-generator",
       {
-        preset: 'conventionalcommits',
+        preset: "conventionalcommits",
       },
     ],
-    '@semantic-release/changelog',
+    "@semantic-release/changelog",
     [
-      '@semantic-release/npm',
+      "@semantic-release/npm",
       {
-        prepare: 'npm run build',
+        prepare: "npm run build",
       },
     ],
     [
-      '@semantic-release/git',
+      "@semantic-release/git",
       {
-        assets: ['package.json', 'package-lock.json', 'CHANGELOG.md'],
+        assets: ["package.json", "package-lock.json", "CHANGELOG.md"],
         message:
           // biome-ignore lint/suspicious/noTemplateCurlyInString: no need that
-          'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
+          "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
       },
     ],
-    '@semantic-release/github',
+    "@semantic-release/github",
   ],
 };
