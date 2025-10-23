@@ -1,6 +1,6 @@
 {
   "name": "@mcp-aio/logging",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The logging library for MCP server",
   "type": "module",
   "license": "MIT",

@@ -1,3 +1,23 @@
+## <small>1.0.1 (2025-10-23)</small>
+
+* fix(deps): upgrade dependencies (#26) ([817bcd6](https://github.com/mcp-aio/logging/commit/817bcd6)), closes [#26](https://github.com/mcp-aio/logging/issues/26)
+* chore(deps): update actions/checkout action to v5 (#8) ([ff19b86](https://github.com/mcp-aio/logging/commit/ff19b86)), closes [#8](https://github.com/mcp-aio/logging/issues/8)
+* chore(deps): update actions/setup-node action to v6 (#21) ([3a494f2](https://github.com/mcp-aio/logging/commit/3a494f2)), closes [#21](https://github.com/mcp-aio/logging/issues/21)
+* chore(deps): update dependencies (#23) ([aa2e9f8](https://github.com/mcp-aio/logging/commit/aa2e9f8)), closes [#23](https://github.com/mcp-aio/logging/issues/23)
+* chore(deps): update dependency @biomejs/biome to v2.2.7 (#14) ([02cfa71](https://github.com/mcp-aio/logging/commit/02cfa71)), closes [#14](https://github.com/mcp-aio/logging/issues/14)
+* chore(deps): update dependency @commitlint/cli to v20 (#17) ([2a97251](https://github.com/mcp-aio/logging/commit/2a97251)), closes [#17](https://github.com/mcp-aio/logging/issues/17)
+* chore(deps): update dependency @commitlint/config-conventional to v20 (#18) ([ba9a226](https://github.com/mcp-aio/logging/commit/ba9a226)), closes [#18](https://github.com/mcp-aio/logging/issues/18)
+* chore(deps): update dependency @semantic-release/npm to v13 (#22) ([bbe4190](https://github.com/mcp-aio/logging/commit/bbe4190)), closes [#22](https://github.com/mcp-aio/logging/issues/22)
+* chore(deps): update dependency @types/node to v24.9.1 (#13) ([5e4c948](https://github.com/mcp-aio/logging/commit/5e4c948)), closes [#13](https://github.com/mcp-aio/logging/issues/13)
+* chore(deps): update dependency commitlint to v20 (#19) ([356be72](https://github.com/mcp-aio/logging/commit/356be72)), closes [#19](https://github.com/mcp-aio/logging/issues/19)
+* chore(deps): update dependency lint-staged to v16.2.6 (#10) ([457cc96](https://github.com/mcp-aio/logging/commit/457cc96)), closes [#10](https://github.com/mcp-aio/logging/issues/10)
+* chore(deps): update dependency semantic-release to v24.2.9 (#16) ([06bb633](https://github.com/mcp-aio/logging/commit/06bb633)), closes [#16](https://github.com/mcp-aio/logging/issues/16)
+* chore(deps): update dependency tsdown to v0.15.9 (#15) ([8c2afba](https://github.com/mcp-aio/logging/commit/8c2afba)), closes [#15](https://github.com/mcp-aio/logging/issues/15)
+* chore(deps): update dependency typescript to v5.9.3 (#20) ([e671d94](https://github.com/mcp-aio/logging/commit/e671d94)), closes [#20](https://github.com/mcp-aio/logging/issues/20)
+* chore(deps): update dependency ultracite to v5.3.0 (#7) ([4db5cf5](https://github.com/mcp-aio/logging/commit/4db5cf5)), closes [#7](https://github.com/mcp-aio/logging/issues/7)
+* chore(deps): update dependency ultracite to v5.6.4 (#11) ([1063a09](https://github.com/mcp-aio/logging/commit/1063a09)), closes [#11](https://github.com/mcp-aio/logging/issues/11)
+* Merge pull request #6 from mcp-aio/docs/badges ([94e1826](https://github.com/mcp-aio/logging/commit/94e1826)), closes [#6](https://github.com/mcp-aio/logging/issues/6)
+
 ## 1.0.0 (2025-08-27)
 
 * Merge pull request #1 from mcp-aio/docs/license ([234104e](https://github.com/mcp-aio/logging/commit/234104e)), closes [#1](https://github.com/mcp-aio/logging/issues/1)
