@@ -1,5 +1,5 @@
-import { Writable, type WritableOptions } from 'node:stream';
-import { type LoggerConfig, type Payload, SplunkLogger } from './splunk-logger';
+import { Writable, type WritableOptions } from "node:stream";
+import { type LoggerConfig, type Payload, SplunkLogger } from "./splunk-logger";
 
 export interface SplunkStreamOptions extends WritableOptions {
   splunk: LoggerConfig;
@@ -20,7 +20,7 @@ export class SplunkStream extends Writable {
   _write(chunk: any, _encoding: string, callback: () => void) {
     // Bunyan/Pino will send JSON string
     let payload: Payload;
-    if (typeof chunk === 'string') {
+    if (typeof chunk === "string") {
       try {
         payload = { event: JSON.parse(chunk) };
       } catch {
@@ -35,7 +35,7 @@ export class SplunkStream extends Writable {
         this.onError(err);
       } else {
         // biome-ignore lint/suspicious/noConsole: we should use console in this place
-        console.warn('Splunk logging failed:', err.message);
+        console.warn("Splunk logging failed:", err.message);
       }
     });
 

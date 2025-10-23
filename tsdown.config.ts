@@ -1,10 +1,10 @@
-import { defineConfig } from 'tsdown';
+import { defineConfig } from "tsdown";
 
 export default defineConfig([
   {
-    entry: ['./src/index.ts'],
-    platform: 'node',
+    entry: ["./src/index.ts"],
+    platform: "node",
     dts: true,
-    external: ['undici'],
+    external: ["undici"],
   },
 ]);
