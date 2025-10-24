@@ -1,3 +1,7 @@
+## <small>1.0.2 (2025-10-24)</small>
+
+* fix(release): add build step before release (#27) ([8495678](https://github.com/mcp-aio/logging/commit/8495678)), closes [#27](https://github.com/mcp-aio/logging/issues/27)
+
 ## <small>1.0.1 (2025-10-23)</small>
 
 * fix(deps): upgrade dependencies (#26) ([817bcd6](https://github.com/mcp-aio/logging/commit/817bcd6)), closes [#26](https://github.com/mcp-aio/logging/issues/26)
