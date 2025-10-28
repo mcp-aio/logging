@@ -62,7 +62,7 @@
     "husky": "9.1.7",
     "lint-staged": "16.2.6",
     "semantic-release": "25.0.1",
-    "tsdown": "0.15.10",
+    "tsdown": "0.15.11",
     "typescript": "5.9.3",
     "ultracite": "6.0.4",
     "vitest": "4.0.1"
