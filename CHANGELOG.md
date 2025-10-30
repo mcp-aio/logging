@@ -1,3 +1,19 @@
+## 1.1.0 (2025-10-30)
+
+* chore(deps): update dependency @biomejs/biome to v2.3.1 (#29) ([474be7b](https://github.com/mcp-aio/logging/commit/474be7b)), closes [#29](https://github.com/mcp-aio/logging/issues/29)
+* chore(deps): update dependency @biomejs/biome to v2.3.2 (#35) ([3681f7a](https://github.com/mcp-aio/logging/commit/3681f7a)), closes [#35](https://github.com/mcp-aio/logging/issues/35)
+* chore(deps): update dependency @types/node to v24.9.2 (#36) ([a04fc51](https://github.com/mcp-aio/logging/commit/a04fc51)), closes [#36](https://github.com/mcp-aio/logging/issues/36)
+* chore(deps): update dependency node to v24 (#33) ([faec2df](https://github.com/mcp-aio/logging/commit/faec2df)), closes [#33](https://github.com/mcp-aio/logging/issues/33)
+* chore(deps): update dependency tsdown to v0.15.10 (#30) ([07eeea9](https://github.com/mcp-aio/logging/commit/07eeea9)), closes [#30](https://github.com/mcp-aio/logging/issues/30)
+* chore(deps): update dependency tsdown to v0.15.11 (#32) ([0a1a0c7](https://github.com/mcp-aio/logging/commit/0a1a0c7)), closes [#32](https://github.com/mcp-aio/logging/issues/32)
+* chore(deps): update dependency tsdown to v0.15.12 (#39) ([d4ea342](https://github.com/mcp-aio/logging/commit/d4ea342)), closes [#39](https://github.com/mcp-aio/logging/issues/39)
+* chore(deps): update dependency ultracite to v6 (#31) ([8cc1492](https://github.com/mcp-aio/logging/commit/8cc1492)), closes [#31](https://github.com/mcp-aio/logging/issues/31)
+* chore(deps): update dependency ultracite to v6.0.5 (#37) ([768555f](https://github.com/mcp-aio/logging/commit/768555f)), closes [#37](https://github.com/mcp-aio/logging/issues/37)
+* chore(deps): update vitest core and coverage to v4.0.5 (#41) ([1efe932](https://github.com/mcp-aio/logging/commit/1efe932)), closes [#41](https://github.com/mcp-aio/logging/issues/41)
+* chore(renovate): add renovate config to group vitest packages (#40) ([7a5770c](https://github.com/mcp-aio/logging/commit/7a5770c)), closes [#40](https://github.com/mcp-aio/logging/issues/40)
+* feat(index): add index in logger config as optional param (#38) ([72a3c9b](https://github.com/mcp-aio/logging/commit/72a3c9b)), closes [#38](https://github.com/mcp-aio/logging/issues/38)
+* fix(deps): update dev dependencies (#34) ([e48c925](https://github.com/mcp-aio/logging/commit/e48c925)), closes [#34](https://github.com/mcp-aio/logging/issues/34)
+
 ## <small>1.0.2 (2025-10-24)</small>
 
 * fix(release): add build step before release (#27) ([8495678](https://github.com/mcp-aio/logging/commit/8495678)), closes [#27](https://github.com/mcp-aio/logging/issues/27)
