@@ -1,3 +1,7 @@
+## 1.2.0 (2025-10-30)
+
+* feat(stream): add fields support for stream mode (#42) ([f525c79](https://github.com/mcp-aio/logging/commit/f525c79)), closes [#42](https://github.com/mcp-aio/logging/issues/42)
+
 ## 1.1.0 (2025-10-30)
 
 * chore(deps): update dependency @biomejs/biome to v2.3.1 (#29) ([474be7b](https://github.com/mcp-aio/logging/commit/474be7b)), closes [#29](https://github.com/mcp-aio/logging/issues/29)
