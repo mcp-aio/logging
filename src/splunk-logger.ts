@@ -6,11 +6,13 @@ export type LoggerConfig = {
   strictSSL?: boolean;
   maxBatchCount?: number;
   batchInterval?: number;
+  index?: string;
 };
 
 export type Payload = {
   event: unknown;
   fields?: Record<string, unknown>;
+  index?: string;
 };
 
 export type SplunkResponse = {
@@ -103,7 +105,9 @@ export class SplunkLogger {
    */
   private async doSend(payloads: Payload[]): Promise<SplunkResponse> {
     const url = `${this.config.url}/services/collector/event`;
-    const body = payloads.map((p) => JSON.stringify(p)).join("\n");
+    const body = payloads
+      .map((p) => JSON.stringify({ index: this.config.index, ...p }))
+      .join("\n");
 
     const res = await fetch(url, {
       method: "POST",
