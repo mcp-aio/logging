@@ -1,0 +1,12 @@
+{
+  "packageRules": [
+    {
+      "groupName": "vitest core and coverage",
+      "matchPackageNames": ["vitest", "@vitest/coverage-v8"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    }
+  ]
+}
