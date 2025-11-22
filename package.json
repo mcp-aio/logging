@@ -64,7 +64,7 @@
     "semantic-release": "25.0.2",
     "tsdown": "0.16.6",
     "typescript": "5.9.3",
-    "ultracite": "6.3.4",
+    "ultracite": "6.3.5",
     "vitest": "4.0.13"
   },
   "lint-staged": {
